@@ -1,0 +1,393 @@
+*{
+    padding-left: 15px;
+    margin:0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    background-color: #1f242d;
+    color: white;
+}
+
+/*a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.navbar
+{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 25px 9%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    visibility: hidden;
+    opacity: 0;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: 1.2s;
+}
+
+@keyframes show-content {
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+.navbar .logo
+{
+    font-size: 30px;
+    font-weight: 700;
+}
+.navbar ul{
+    display: flex;
+}
+
+.navbar ul li {
+    list-style: none;
+    margin-left: 35px;
+}
+
+.navbar ul li a {
+    font-size: 20px;
+    font-weight: 500;
+    transition: .5s;
+}
+
+.navbar ul li:hover a,
+.navibarul li :active{
+    
+    color: #7cf03d;
+    
+}
+*/
+.skills{
+    background: var(--secon-bg-color);
+    margin-top: 50px;
+}
+
+.main-text{
+        padding-top: 10px;   
+        text-align: center;
+}
+.main-text span{
+    padding-top: 20px;
+}
+
+.main-text h2{
+    padding-top: 40px;
+          color: #7cf03d;
+          text-decoration: underline;
+}
+
+.skill-main{
+    padding-top: 50px;
+    width:100%;
+    display:grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-row-gap: 30px;
+    grid-column-gap: 50PX;
+}
+
+.skill-bar{
+    margin-bottom: 2.3rem;
+}
+
+.skill-main h3{
+    margin-bottom: 5rem;
+    font-size: var(--normal-font);
+    text-align: center;
+}
+
+.skill-left .skill-bar .info{
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: left;
+    padding: 50 30px;
+}
+
+.skill-left .skill-bar .bar{
+    width: 80%;
+    height: 10px;
+    background-color:white;
+    border-radius: 25px;
+    margin-top: 10px;
+    position: relative;
+    color: white;
+}
+
+.skill-bar .bar span{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    padding-top: 0;
+    background:#7cf03d;
+    border-radius: 25px;
+    box-shadow:var(--neon-box-shadow);
+}         
+
+.skill-bar .bar .html{
+    width:72%;
+    animation: html 2s;
+}
+
+.skill-bar .bar .css{
+       width: 70%;
+       animation: css 3s;
+}
+
+.skill-bar .bar .java{
+    width: 80%;
+    animation: java 4s;
+}
+
+.skill-bar .bar .python{
+    width: 60%;
+    animation: python 5s;
+}
+
+/*
+.professional{
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.box{
+    margin: 20px 0;
+    flex: 1 1 15rem;
+    position: relative;
+}
+
+.box .text{
+    text-align: center;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.box .text big{
+    font: 400;
+    letter-spacing: 1px;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+}
+
+.box .text small{
+    display: block;
+    font-weight: 600;
+}
+.circle{
+    width: 80%;
+    height: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #fff
+}
+
+.circle .points{
+    width: 5px;
+    height: 5px;
+    background-color: #7cf03d;
+    position: absolute;
+    border-radius: 3px;
+    transform: rotate(calc(var(--i)*var(--rot))) translate(-45px);
+    animation: glow 0.03s linear forwards;
+    animation-delay: calc(var(--i)*0.05s);
+}
+*/
+
+
+/*@keyframes feMorphology{
+    0%,
+    100%{
+        border-radius: 40% 60% 70% 30% / 40% 40% 60% 50%;
+    }
+    30%{
+        border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+    }
+    60%{
+        border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+    }
+    80%{
+        border-radius: 69% 31% 66% 34% / 21% 30% 70% 79%;
+    }
+}*/
+
+
+@keyframes html{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 72%;
+    }
+}
+
+@keyframes css{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 70%;
+    }
+}
+
+@keyframes java{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 80%;
+    }
+}
+
+@keyframes python{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 60%;
+    }
+}
+
+@keyframes glow{
+    0%{
+        background:#7cf03d ;  
+        box-shadow: none;
+      }
+      100%{
+          background:#7cf03d
+      }
+}
+
+.radial-bars{
+    padding-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.radial-bars .radial-bar{
+    width: 50%;
+    height: 200px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.radial-bars .radial-bar svg{
+    position: relative;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50% , -50%) rotate(-90deg);
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}
+
+.radial-bars .radial-bar .progress-bar{
+    stroke-width: 10;
+    stroke: white;
+    fill: transparent;
+    stroke-dasharray: 502;
+    stroke-linecap: round;
+    animation: animate-bar 1s linear forwards;
+}
+
+@keyframes animate-bar{
+    100%{
+        stroke-dashoffset: -1;
+
+    }
+}
+
+.path{
+        stroke-width: 15;
+        stroke: #7cf03d;
+        fill: transparent;
+        stroke-dasharray: 502;
+        stroke-dashoffset: 502;
+        stroke-linecap: round;
+}
+
+
+.path-1{animation: animate-path1 1s 1s linear forwards;}
+.path-2{animation: animate-path1 1s 1s linear forwards;}
+.path-3{animation: animate-path1 1s 1s linear forwards;}
+.path-4{animation: animate-path1 1s 1s linear forwards;}
+
+@keyframes animate-path1{
+    100%{
+        stroke-dashoffset: 50;
+
+    }
+}
+@keyframes animate-path1{
+    100%{
+        stroke-dashoffset: 175;
+        
+    }
+}
+@keyframes animate-path1{
+    100%{
+        stroke-dashoffset: 125;
+        
+    }
+}
+@keyframes animate-path1{
+    100%{
+        stroke-dashoffset: 75;
+        
+    }
+}
+
+
+.radial-bar .percentage{
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+@keyframes text1{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 72%;
+    }
+}
+
+@keyframes text2{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 70%;
+    }
+}
+
+@keyframes text3{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 80%;
+    }
+}
+
+@keyframes text4{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 60%;
+    }
+}
+

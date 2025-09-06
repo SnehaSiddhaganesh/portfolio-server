@@ -93,8 +93,3 @@ window.onscroll = () => {
   }
 };
 
-
-/*window.onscroll = ()=>{
-  menuicon.classList.remove("bx-menu");
-  navlist.classList.remove("open");
-} */

@@ -1,28 +1,51 @@
-document.getElementById('contactForm').addEventListener('submit', function (e) {
-    const name = document.querySelector('[name="name"]').value.trim();
-    const email = document.querySelector('[name="email"]').value.trim();
-    const address = document.querySelector('[name="address"]').value.trim();
-    const phone = document.querySelector('[name="phone"]').value.trim();
-    const message = document.querySelector('[name="message"]').value.trim();
+
+  // Contact form validation
+  document.getElementById('contactForm').addEventListener('submit', function (e) {
+    const name = document.querySelector('[name="contact_name"]').value.trim();
+    const email = document.querySelector('[name="contact_email"]').value.trim();
+    const address = document.querySelector('[name="contact_address"]').value.trim();
+    const phone = document.querySelector('[name="contact_phone"]').value.trim();
+    const message = document.querySelector('[name="contact_message"]').value.trim();
 
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phonePattern = /^[0-9]{10}$/;
 
     let errorMessage = '';
 
-    if (!name || !email || !message) {
-      errorMessage = 'Please fill in all required fields.';
+    if (!name || !email || !address || !phone || !message) {
+      errorMessage = 'Please fill in all fields.';
     } else if (!emailPattern.test(email)) {
       errorMessage = 'Invalid email format.';
-    } else if (phone && !phonePattern.test(phone)) {
+    } else if (!phonePattern.test(phone)) {
       errorMessage = 'Phone number must be 10 digits.';
     }
 
     if (errorMessage) {
       alert(errorMessage);
-      e.preventDefault(); // Stop form from submitting
+      e.preventDefault(); // stop form submission
     }
   });
+
+
+  // Advice form validation
+  document.getElementById('adviceme').addEventListener('submit', function (e) {
+    const recommendation = document.querySelector('[name="recommendation"]').value.trim();
+    const name = document.querySelector('[name="advice_name"]').value.trim();
+    const designation = document.querySelector('[name="designation"]').value.trim();
+
+    let errorMessage = '';
+
+    if (!recommendation || !name || !designation) {
+      errorMessage = 'Please fill in all advice fields.';
+    }
+
+    if (errorMessage) {
+      alert(errorMessage);
+      e.preventDefault(); // stop form submission
+    }
+  });
+
+
 
 const observer = new IntersectionObserver((entries)=>{
   entries.forEach((entry)=>{

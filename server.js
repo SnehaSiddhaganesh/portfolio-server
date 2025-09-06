@@ -82,3 +82,44 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
+
+
+
+///render
+const mysql = require('mysql2/promise');
+
+// Directly Railway ka URL use karo
+const pool = mysql.createPool({
+  uri: 'mysql://root:cPFVbAwapSSsxddqYCOHzImvhYJCxpQO@ballast.proxy.rlwy.net:33318/railway',
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
+});
+
+// Tables create karne ka code
+async function initDB() {
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS contacts (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      name VARCHAR(255),
+      email VARCHAR(255),
+      message TEXT
+    )
+  `);
+
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS advice (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      recommendation TEXT,
+      advice_name VARCHAR(255)
+    )
+  `);
+
+  console.log("✅ Tables ready (contacts, advice)");
+}
+
+initDB().catch(err => {
+  console.error("❌ DB Init Error:", err);
+});
+
+module.exports = pool;

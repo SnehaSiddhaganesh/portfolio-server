@@ -1,254 +1,84 @@
-/*const express = require('express');
-const path = require('path');
-
-const app = express();
-const PORT = 3000;
-
-// Serve static files from the "public" folder
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Home route
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public'));
-});
-
-app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:${PORT}`);
-});
-
-
-
-
-
-//////////////////////////////////////////////////////////////
-
-//const express = require('express');
-//const path = require('path');
-/*const mysql = require('mysql');
-const bodyParser = require('body-parser');
-
-//const app = express();
-//const PORT = 3000;
-
-// Serve static files from "public"
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// MySQL connection
-const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '9763845234', // your password, leave blank if using XAMPP default
-  database: 'portfolio_db'
-});
-
-db.connect((err) => {
-  if (err) {
-    console.error('Database connection error:', err);
-  } else {
-    console.log('✅ Connected to MySQL database');
-  }
-});
-
-// Route to handle contact form submission
-app.post('/contact', (req, res) => {
-  const { name, email, message } = req.body;
-
-  const query = 'INSERT INTO contact (name, email, message) VALUES (?, ?, ?)';
-  db.query(query, [name, email, message], (err, result) => {
-    if (err) {
-      console.error('Error inserting data:', err);
-      res.send('Something went Wrong!');
-    } else {
-      console.log('✅ Contact form data saved');
-      res.redirect('\thanku.html');
-    }
-  });
-});
-
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:${PORT}`);
-});
-
-*/
-//const express = require('express');
-//const path = require('path');
-/*const mysql = require('mysql');
-const bodyParser = require('body-parser');
-
-//const app = express();
-//const PORT = 3000;
-
-// Serve static files from "public"
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// MySQL connection
-const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '9763845234',
-  database: 'portfolio_db'
-});
-
-db.connect((err) => {
-  if (err) {
-    console.error('Database connection error:', err);
-  } else {
-    console.log('✅ Connected to MySQL database');
-  }
-});
-
-// Route to handle contact form submission
-app.post('/contact', (req, res) => {
-  const { name, email, message } = req.body;
-
-  const query = 'INSERT INTO contact (name, email, message) VALUES (?, ?, ?)';
-  db.query(query, [name, email, message], (err, result) => {
-    if (err) {
-      console.error('Error inserting data:', err);
-      res.send('Something went Wrong!');
-    } else {
-      console.log('✅ Contact form data saved');
-      res.redirect('/thanku.html'); // ✅ fixed path
-    }
-  });
-});
-
-// Start server
-app.listen(PORT, () => {
-  console.log(`Server is running at http://localhost:${PORT}`);
-});
-*/
-
-/*
 const express = require('express');
 const path = require('path');
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const bodyParser = require('body-parser');
 
 const app = express();
 const PORT = 3000;
 
-// Middleware
-app.use(express.static(path.join(__dirname, 'public')));
+// ================== Middleware ==================
+app.use(express.static(path.join(__dirname, 'public')));  // serve static files (index.html, css, js, etc.)
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-// MySQL connection
+// ================== MySQL connection ==================
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '9763845234',
+  password: '9763845234',   // ⚠️ replace with your MySQL password
   database: 'portfolio_db'
 });
 
 db.connect((err) => {
   if (err) {
-    console.error('❌ Database connection error:', err);
+    console.error('❌ DB connection error:', err);
   } else {
-    console.log('✅ Connected to MySQL database');
+    console.log('✅ Connected to MySQL Database');
   }
 });
 
-// Route to serve index.html directly on /
+// ================== CONTACT FORM ==================
+app.post('/contact', (req, res) => {
+  const { contact_name, contact_email, contact_address, contact_phone, contact_message } = req.body;
+
+  if (!contact_name || !contact_email || !contact_message) {
+    return res.status(400).send('⚠️ Required fields missing in contact form');
+  }
+
+  const query = `
+    INSERT INTO contact (name, email, address, phone, message) 
+    VALUES (?, ?, ?, ?, ?)
+  `;
+
+  db.query(query, [contact_name, contact_email, contact_address, contact_phone, contact_message], (err, result) => {
+    if (err) {
+      console.error('❌ Contact Insert Error:', err);
+      return res.status(500).send('Something went wrong while saving contact!');
+    }
+    console.log('✅ Contact form data saved');
+    res.redirect('/thanku.html');   // this file must exist in public/
+  });
+});
+
+// ================== ADVICE FORM ==================
+app.post('/advice', (req, res) => {
+  const { recommendation, advice_name, designation } = req.body;
+
+  if (!recommendation || !advice_name || !designation) {
+    return res.status(400).send('⚠️ Required fields missing in advice form');
+  }
+
+  const query = `
+    INSERT INTO advice (recommendation, name, designation) 
+    VALUES (?, ?, ?)
+  `;
+
+  db.query(query, [recommendation, advice_name, designation], (err, result) => {
+    if (err) {
+      console.error('❌ Advice Insert Error:', err);
+      return res.status(500).send('Something went wrong while saving advice!');
+    }
+    console.log('✅ Advice form data saved');
+    res.redirect('/advthanku.html');   // this file must exist in public/
+  });
+});
+
+// ================== Default Route ==================
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Route to handle contact form submission
-/*app.post('/contact', (req, res) => {
-  const { name, email, message } = req.body;
-
-  const query = 'INSERT INTO contact (name, email, message) VALUES (?, ?, ?)';
-  db.query(query, [name, email, message], (err, result) => {
-    if (err) {
-      console.error('❌ Error inserting data:', err);
-      res.send('Something went wrong!');
-    } else {
-      console.log('✅ Contact form data saved');
-      res.redirect('/thanku.html');
-    }
-  });
-});
-*/
-// Start server
-/*app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
-});*/
-
-/*
-app.post('/contact', (req, res) => {
-  const { name, email, address, phone, message } = req.body;
-
-  const query = 'INSERT INTO contact (name, email, address, phone, message) VALUES (?, ?, ?, ?, ?)';
-  db.query(query, [name, email, address, phone, message], (err, result) => {
-    if (err) {
-      console.error('❌ Insert error:', err);
-      res.send('Something went wrong!');
-    } else {
-      console.log('✅ Contact form data saved');
-      res.redirect('/thanku.html');
-    }
-  });
-});
+// ================== Start Server ==================
 app.listen(PORT, () => {
   console.log(`🚀 Server running at http://localhost:${PORT}`);
 });
-
-
-*/
-const express = require('express');
-const path = require('path');
-const mysql = require('mysql');
-const bodyParser = require('body-parser');
-
-const app = express();
-const PORT = 3000;
-
-// Middleware
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// MySQL connection
-const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '9763845234',
-  database: 'portfolio_db'
-});
-
-db.connect((err) => {
-  if (err) {
-    console.error('❌ DB error:', err);
-  } else {
-    console.log('✅ Connected to MySQL');
-  }
-});
-
-// GET home page
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-// POST: contact form
-app.post('/contact', (req, res) => {
-  const { name, email, address, phone, message } = req.body;
-
-  const query = 'INSERT INTO contact (name, email, address, phone, message) VALUES (?, ?, ?, ?, ?)';
-  db.query(query, [name, email, address, phone, message], (err, result) => {
-    if (err) {
-      console.error('❌ Insert error:', err);
-      res.send('Something went wrong!');
-    } else {
-      console.log('✅ Contact form data saved');
-      res.redirect('/thanku.html'); // thanku.html should be in public folder
-    }
-  });
-});
-
-// Start server
-app.listen(PORT, () => {
-  console.log(`🚀 Server running at http://localhost:${PORT}`);
-});
-

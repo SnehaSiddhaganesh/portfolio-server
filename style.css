@@ -120,6 +120,11 @@ header
     z-index: 1000;
     border-bottom: 1px solid transparent;
 }*/
+.menu-icon{
+  transform: rotate(90deg);
+  color:#7cf03d;
+}
+
 
 .navlist a.active {
     color: #7cf03d;
@@ -1288,7 +1293,69 @@ p {
         font-size: 13px;
       }
     }
+  /*===============================================================================*/
+ .advice{
+     padding-top: 70px;
+    background-color: #1f242d;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+  }
 
+  .recommend-section{
+     background: #1f242d;
+    padding:  60px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(66, 244, 7, 0.916);
+    text-align: center;
+    width: 1200px;
+    max-width: 850px;
+}
+
+.recommend-section h2{
+ font-size: 24px;
+ margin-bottom: 20px;
+ color: #7cf03d
+}
+
+
+div input,                                                       
+div textarea {
+    width: 100%;
+    padding: 5px;
+    margin: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    background: #222;
+    color: #fff;
+    font-size: 16px;
+}
+
+div textarea {
+    height: 100px;
+    resize: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background: #7cf03d;
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #7cf03d
+}
+*/
   /*-----------------------------------contact section---------------------------*/
   .contact{
     padding-top: 70px;
@@ -1404,4 +1471,118 @@ footer a{
 .show-items{
     opacity: 1;
     transform: translateX(0);
+}
+
+/* ---------------- RESPONSIVE FIXES ---------------- */
+
+/* ================= RESPONSIVE FIXES ================= */
+
+/* For tablets and small laptops */
+@media (max-width: 1024px) {
+  header {
+    padding: 20px 5%;
+  }
+
+  .home-info h1 {
+    font-size: 40px;
+  }
+
+  .home-info h2 {
+    font-size: 24px;
+  }
+
+  .home-img .img-box,
+  .home-img1 .img-box1 {
+    width: 40vw;
+    height: 40vw;
+  }
+
+  .skills .skill-main {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* For mobile devices */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 15px;
+    text-align: center;
+  }
+
+  .navlist {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .home {
+    flex-direction: column;
+    padding: 100px 5% 20px;
+    text-align: center;
+  }
+
+  .home-info h1 {
+    font-size: 32px;
+  }
+
+  .home-info h2 {
+    font-size: 20px;
+  }
+
+  .home-img .img-box,
+  .home-img1 .img-box1 {
+    width: 60vw;
+    height: 60vw;
+    margin-top: 20px;
+  }
+
+  .skills .skill-main {
+    grid-template-columns: 1fr;
+  }
+
+  .services-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card1 {
+    width: 90%;
+    height: auto;
+  }
+
+  .card img {
+    height: 150px;
+  }
+
+  .card-content h3 {
+    font-size: 16px;
+  }
+
+  .card-content p {
+    font-size: 14px;
+  }
+}
+
+/* For very small phones */
+@media (max-width: 480px) {
+  .home-info h1 {
+    font-size: 26px;
+  }
+
+  .home-info h2 {
+    font-size: 18px;
+  }
+
+  .btn {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+
+  .skills .skill-main {
+    padding: 0;
+  }
+
+  .card1 {
+    padding: 20px;
+  }
 }

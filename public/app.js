@@ -66,3 +66,35 @@ const header = document.querySelector("header");
 window.addEventListener("scroll",function(){
   header.classList.toggle("sticky",window.scrollY > 50)
 });
+  
+
+///toggle i con/////////////
+
+
+let menuicon = document.querySelector(".menu-icon i"); // sirf <i> target karo
+let navlist = document.querySelector(".navlist");
+
+menuicon.onclick = () => {
+  // icon swap
+  if (menuicon.classList.contains("bx-menu")) {
+    menuicon.classList.replace("bx-menu", "bx-x");
+  } else {
+    menuicon.classList.replace("bx-x", "bx-menu");
+  }
+
+  // nav toggle
+  navlist.classList.toggle("open");
+};
+window.onscroll = () => {
+  navlist.classList.remove("open");              // menu band ho
+  menuicon.classList.remove("bx-x");             // cross hat jaye
+  if (!menuicon.classList.contains("bx-menu")) { // agar menu class missing hai
+    menuicon.classList.add("bx-menu");           // wapas menu lagao
+  }
+};
+
+
+/*window.onscroll = ()=>{
+  menuicon.classList.remove("bx-menu");
+  navlist.classList.remove("open");
+} */

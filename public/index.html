@@ -9,14 +9,74 @@
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+       .advice{
+     padding-top: 70px;
+    background-color: #1f242d;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+  }
+
+  .recommend-section{
+     background: #1f242d;
+    padding:  60px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(66, 244, 7, 0.916);
+    text-align: center;
+    width: 1200px;
+    max-width: 850px;
+}
+
+.recommend-section h2{
+ font-size: 24px;
+ margin-bottom: 20px;
+ color: #7cf03d
+}
+
+
+div input,                                                       
+div textarea {
+    width: 100%;
+    padding: 5px;
+    margin: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    background: #222;
+    color: #fff;
+    font-size: 16px;
+}
+
+div textarea {
+    height: 100px;
+    resize: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background: #7cf03d;
+    color: #000;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #7cf03d
+}
+    </style>
 
 </head>
 
 <body>
    <header>
-       <!--<nav class="navbar">-->
-           <!--<a href="index.html" class="logo">Portfolio</a>-->
-
                 <div class="logo">Portfolio</div>
                   <ul class="navlist">
                          <li><a href="index.html">Home</a></li>
@@ -24,14 +84,10 @@
                          <li><a href="#skills" >Skills</a></li>
                          <li><a href="#project" >Project</a></li>
                           <li><a href="#timelines" >TimeLines</a></li>
+                          <li><a href="#adviceme" >Advice</a></li>
                            <li><a href="#contactme">Contact</a></li>
                     </ul>
-                     <!---<div id="home" class="section">Welcome to Home Section</div>
-                     <div id="about" class="section" style="display: none;">About Section</div>
-                      <div id="skillsme" class="section" style="display: none;">Our Skills</div>
-                     <div id="project1" class="section" style="display: none;">My Projects</div>
-                     <div id="timelinesme" class="section" style="display: none;">Our Timelines</div>
-                      <div id="contact" class="section" style="display: none;">Contact Us</div>-->
+                     <div class="menu-icon"><i class="bx bx-menu"></i></div>
          
    </header>
     <div class="bars-animation">
@@ -61,9 +117,7 @@
             <a href="C:\Users\sneha\Downloads\Sneha Resume.pdf" class="btn">Download CV</a>
             <div class="sci">
                 <a href="https://github.com/SnehaSiddhaganesh"><i class='bx bxl-github'></i></a>
-                <a href="www.linkedin.com/in/sneha-siddhaganesh-89a399320"><i class='bx bxl-linkedin'></i></a>
-                <a href="#"><i class='bx bxl-youtube' ></i></a>
-                <a href="#"><i class='bx bxl-twitter' ></i></a>
+                <a href="https://www.linkedin.com/in/sneha-siddhaganesh-89a399320"><i class='bx bxl-linkedin'></i></a>
             </div>
         </div>    
     </div>
@@ -89,14 +143,13 @@
     </div>
     <div class="content scroll-scale">
         <h2>About Me</h2>
-        <p>Hi,I'm Sneha Siddhaganesh,a passionate and emotional tech enthusiast currently pursuing my 2nd year of B.Tech at NKOCET Solapur</p>
+        <p>Hi,I'm Sneha Siddhaganesh,a passionate and emotional tech enthusiast currently pursuing my 3rd year of B.Tech at NKOCET Solapur</p>
         <p>I specialize in Java and JavaScript, with certifications in NPTEL Java (Elite), HackerRank (2-star in Java), and the Postman API Fundamentals program.</p>
         <p>I have completed a 6-week Cyber Security internship with AICTE & IBM Skill Build, alongside a Java development course with Techno Hack.</p>
         <p>I'm also engaged in developer communities like GDG and have applied for the Google Cloud Study Jam facilitator role.</p>
         <p>Always eager to learn new technologies, I strive to grow and make an impact in the tech world!</p>
         <p>Passionate towards my goal to become a Programmer.</p>
-        <p>Certain Skills that I learn is Data Structures Algorithm and Java Object Oriented programming language and what I might lack in skills I make up for 
-           with my Determination to learn.</p>
+        
     
     </div>
 
@@ -210,16 +263,22 @@
             it remains a challenge for physically abled people who are unfamiliar with 
             sign language to understand or respond effectively. 
         </p>
-        <button class="btn">Read More</button>
+        <div>
+             <a href="https://github.com/SnehaSiddhaganesh/Sign-Language-Detection-using-Deep-Learning" class="btn2">GitHub Link</a>
+        </div>
+        
       </div>
       <div class="card1">
         <div class="icon">💻</div>
         <h3>Single Enforcement Voting System</h3>
         <p>This project ensures secure and fair digital voting by allowing each user to vote only once. 
-            It uses unique identification (like ID numbers or login credentials) and verification methods to prevent duplicate votes. 
+            It uses unique identification and verification methods to prevent duplicate votes. 
             The system maintains transparency, integrity, and privacy of voters, 
             making it suitable for student elections, polls, or small-scale governance.</p>
-        <button class="btn">Read More</button>
+            <div>
+             <a href="https://github.com/SnehaSiddhaganesh/Single-Enforcement-Voting-System" class="btn2">GitHub Link</a>
+            </div>
+        
       </div>
       <div class="card1">
         <div class="icon">🖥️</div>
@@ -228,7 +287,10 @@
              It modifies the least significant bits (LSB) of image pixels so that the changes are invisible to the human eye, 
              ensuring secure and covert communication.
              The project includes both encoding (hiding) and decoding (revealing) functionalities.</p>
-        <button class="btn">Read More</button>
+             <div>
+             <a href="https://github.com/SnehaSiddhaganesh/MyStego" class="btn2">GitHub Link</a>
+            </div>
+        
       </div>
     </div>
   
@@ -244,6 +306,9 @@
     <img src="images\nptl.jpeg" alt="NPTEL Java">
     <div class="card-content">
       <h3>NPTEL Java (Elite - 71%)</h3>
+      <div>
+      <a href="C:\Portpolio\public\nptl.jpeg" class="btn1">Watch</a>
+      </div>
       <p>Jan - Oct 2024</p>
     </div>
   </div>
@@ -252,6 +317,9 @@
     <img src="images\bootcamp.jpeg" alt="Let's Upgrade Bootcamp">
     <div class="card-content">
       <h3>Let's Upgrade HTML CSS Bootcamp</h3>
+      <div>
+      <a href="C:\Portpolio\public\bootcamp.jpeg" class="btn1">Watch</a>
+      </div>
       <p>9th Sep- 14th Sep 2024</p>
     </div>
   </div>
@@ -261,6 +329,9 @@
     <img src="images\tata.jpeg" alt="Task 1 Certificate">
     <div class="card-content">
       <h3>Data Visualisation</h3>
+      <div>
+      <a href="C:\Portpolio\public\tata.jpeg" class="btn1">Watch</a>
+      </div>
       <p>7th Jan 2025</p>
     </div>
   </div>
@@ -269,6 +340,9 @@
     <img src="images\postman.jpg" alt="Postman API Certificate">
     <div class="card-content">
       <h3>Postman API Student Expert</h3>
+      <div>
+      <a href="C:\Portpolio\public\postman.jpg" class="btn1">Watch</a>
+      </div>
       <p>27th January 2025</p>
     </div>
   </div>
@@ -277,6 +351,9 @@
     <img src="images\edunet.jpeg" alt="Cyber Security Internship">
     <div class="card-content">
       <h3>Cyber Security Internship</h3>
+      <div>
+      <a href="C:\Portpolio\public\edunet.jpeg" class="btn1">Watch</a>
+      </div>
       <p>Jan 15 - Feb 26, 2025</p>
     </div>
   </div>
@@ -285,6 +362,9 @@
     <img src="images\sonaaa.jpeg" alt="Cyber Security Internship">
     <div class="card-content">
       <h3>Microsoft AI Internship</h3>
+      <div>
+      <a href="C:\Portpolio\public\sonaaa.jpeg" class="btn1">Watch</a>
+      </div>
       <p>10 Apr - May 10, 2025</p>
     </div>
   </div>
@@ -293,20 +373,31 @@
 </section>
 <hr>
 
+<section class="advice" id="adviceme">
+  <div class="recommend-section scroll-scale">
+    <h2>🌟 Give Recommendation</h2>
+    <form id="advice-form" action="/advice" method="POST">
+  <textarea name="recommendation" placeholder="Write your recommendation" required></textarea>
+  <input type="text" name="advice_name" placeholder="Your Name" required>
+  <input type="text" name="designation" placeholder="Your Designation" required>
+  <button type="submit">Submit Advice</button>
+</form>
+  </div>
+</section>
+
+<hr>
+  
 <section class="contact" id="contactme">
   <div class="contact-section scroll-scale">
     <h2>Contact Me</h2>
-
-    <!-- ✅ Changed <div> to <form> and added id -->
     <form id="contactForm" action="/contact" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <input type="text" name="address" placeholder="Your Address">
-      <input type="tel" name="phone" placeholder="Phone Number">
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
-    </form>
-
+  <input type="text" name="contact_name" placeholder="Your Name" required>
+  <input type="email" name="contact_email" placeholder="Your Email" required>
+  <input type="text" name="contact_address" placeholder="Your Address" required>
+  <input type="tel" name="contact_phone" placeholder="Phone Number" required>
+  <textarea name="contact_message" placeholder="Your Message" required></textarea>
+  <button type="submit">Submit Contact</button>
+</form>
   </div>
 </section>
 

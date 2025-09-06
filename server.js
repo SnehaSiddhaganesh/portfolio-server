@@ -86,7 +86,6 @@ app.listen(PORT, () => {
 
 
 ///render
-const mysql = require('mysql2/promise');
 
 // Directly Railway ka URL use karo
 const pool = mysql.createPool({

@@ -98,7 +98,7 @@ header
 header.sticky{
     background-color:#1f242d;
     border-bottom: 3px solid #1f242d;
-    padding: 12px 10%;
+    padding: 12px 9%;
     position: fixed;
 }
 
@@ -123,17 +123,6 @@ header.sticky{
    
 }
 
-.about {
-    background: #1f242d;
-    display:flex;
-    align-items: center;
-    min-height: 100vh;
-    padding: 60px 9% 0;
-    color: #fff;
-    position: relative; /* Changed from absolute */
-    padding-top: 0;      /* Removed the huge gap */
-    
-}
 .home{
     display: flex;
     align-items: center;
@@ -644,6 +633,10 @@ p {
     width: 60%;
     animation: python 5s;
 }
+.skill-bar .bar .js{
+    width: 60%;
+    animation: js 5s;
+}
 
 
 
@@ -675,6 +668,15 @@ p {
 }
 
 @keyframes python{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 60%;
+    }
+}
+
+@keyframes js{
     0%{
         width: 0%;
     }
@@ -1221,7 +1223,7 @@ footer a{
 /* Break points*/
 
 @media(max-width:991px){
-    header,
+    /*header,
     header.sticky{
         padding: 15px 5%;
     }
@@ -1230,7 +1232,7 @@ footer a{
     }
     section{
         padding: 15px 5%;
-    }
+    }*/
     .navlist a{
         padding: 8px 15px;
     }
@@ -1241,9 +1243,37 @@ footer a{
 }
 
 @media(max-width:800px){
+    header,
+    header.sticky{
+        padding: 5px 0;
+    }
+    footer{
+        padding: 5px 5%;
+    }
+    section{
+        padding: 5px 5%;
+    }
+    
+    /* Agar header ke elements (logo/menu) horizontal hain, stack kar do */
+    header .logo,
+    header nav {
+        display: block;
+        text-align: center;
+        margin: 20px 10px;
+        padding: 20px;
+    }
+
+    /* Optional: menu items vertically stack ho */
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
     .menu-icon{
         display: block;
         transition: all .4s ease;
+        padding-right: 0;
 
     }
     .menu-icon .bx-x{
@@ -1275,92 +1305,179 @@ footer a{
     .btn-sci{
         padding-bottom: 60px;
     }
+    .home {
+        flex-direction: column; /* text ke upar, image neeche */
+        align-items: center;
+        justify-content: center;
+        padding: 60px 5% 0;
+        height: auto; /* height adjust ho jaye */
+        text-align: center;
+        margin-left: 30px;
+    }
+
+    .home-info {
+        order: 1; /* pehle text aaye */
+    }
+
+    .home-img {
+        order: 2; /* image neeche aaye */
+        margin-top: 2rem; /* gap between text and image */
+        width: 80%; /* image mobile pe chhoti ho */
+        max-width: 300px;
+    }
 
     .home-img .img-box {
-        width: 260px;
-        height: 260px;
+        width: 100%; /* responsive circle */
+        height: auto; /* maintain aspect ratio */
+        aspect-ratio: 1 / 1; /* perfect circle */
     }
 
-    .home-img .img-box::before,
-    .home-img .img-box::after {
-        width: 340px;
-        height: 340px;
+    .home-info h1 {
+        font-size: 35px; /* text chhota ho jaye */
     }
 
-    .home-img .img-box .img-item img {
-        width: 93%;
+    .home-info h2 {
+        font-size: 22px;
     }
 
-    .container {
-        flex-direction: column; /* chhoti screen pe column kar do */
-        width: 95%; /* thoda wide kar do */
+    .home-info p {
+        font-size: 14px;
+    }
+
+    .home-info .btn-sci {
+        justify-content: center; /* icons center align */
+    }
+    
+
+    
+    .about {
+        flex-direction: column; /* text upar, image neeche */
+        align-items: center;
+        padding: 40px 5%;
+        text-align: center;
+        min-height: auto; /* height adjust */
+        margin-left: 30px;
     }
 
     .content {
-        flex: 1;
-        width: 100%; /* full width le lega */
-        padding: 30px 20px; /* spacing thoda adjust */
+        order: 1; /* pehle text aaye */
+        flex: none; /* take full width */
+        padding: 10px 0;
+        font-size: 16px; /* mobile ke liye chhota font */
+    }
+
+    h2 {
+        font-size: 24px; /* heading mobile pe chhoti */
+        margin-bottom: 15px;
+    }
+
+    p {
+        font-size: 14px; /* paragraph smaller */
+        line-height: 1.6;
+    }
+
+    .home-img1 {
+        order: 2; /* image neeche aaye */
+        margin-top: 2rem; /* gap text ke neeche */
+        width: 80%;
+        max-width: 300px; /* responsive size */
     }
 
     .home-img1 .img-box1 {
-        width: 250px;  /* responsive size */
-        height: 250px;
-        margin: 0 auto 20px; /* center and spacing */
-    }
-    .about .img-item1{
-        display: none;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1; /* perfect circle */
     }
     
     .skill-main {
         grid-template-columns: 1fr;
-  }
-
-  .skill-right{
-    grid-column: 1;
-  }
-
-  .radial-bars {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr); /* 1 row me 2 circle */
-      gap: 40px 60px; /* row-gap 40px, column-gap 60px */
-      justify-items: center;
-  }
-
-    .radial-bar div[class^="text"] {
-      margin-top: 10px;
-      padding-left: 0;   /* Left padding hata do */
-      text-align: center;
-      gap: 30px;
-
+    }
+    .skill-right {
+        grid-column:1;
+        padding-right: 80px;
     }
 
+    .skill-left {
+        grid-column:1;
+        padding-right: 80px;
+    }
+
+    /* Radial bars center aligned */
+    .radial-bars {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2 circles per row */
+        gap: 40px 60px; /* row-gap 40px, column-gap 60px */
+        justify-items: left; /* center circles horizontally */
+        width: 80%;
+        margin: 0 0 ; /* center the grid */
+    }
+
+    /* Text labels below circles */
+    .radial-bar div[class^="text"] {
+        margin-top: 10px;
+        padding-left: 0; 
+        padding-right: 0;  /* remove extra right padding */
+        text-align: center;
+        gap: 10px; /* optional gap */
+    }
 
   .advice{
     padding-left: 100px;
 
   }
   .contact{
-    width: 100%;
+
+    font-size: 1rem;
+    padding: 1rem 5%;
+  
   }
 
   .footer{
     width: 100%;
   }
 }
-@media (max-width:350px) {
-    footer {
-        flex-direction: column;   /* elements ek ke niche aa jaye */
-        text-align: center;       /* center align ho jaye */
-        padding: 1.5rem 5%;       /* side padding kam kar do -> width jyada milti hai */
+
+
+@media (max-width: 400px) {
+    header{
+        width: 90%;
+    }
+    .card1 {
+        width: 250px;   /* card chhota */
+        height: auto;   /* height auto, content ke hisaab se */
+        padding: 15px;  /* padding reduce */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* content fit inside */
+        text-align: center; /* text center */
     }
 
-    footer p {
+    .card1 h3 {
+        font-size: 1.1rem; /* heading chhota */
+        margin-bottom: 5px;
+    }
+
+    .card1 p {
+        font-size: 0.8rem; /* paragraph chhota */
         margin-bottom: 10px;
-        font-size: 14px; /* readability improve */
     }
 
-    footer a {
-        padding: 0.8rem 1rem; /* button thoda bada */
-        font-size: 0.95rem;
+    .card1 .btn2 {
+        display: inline-block;
+        padding: 4px 8px; /* button fit inside card */
+        font-size: 14px;
+        margin-top: 5px;  /* spacing from text */
+        box-sizing: border-box;
+    }
+
+    .icon {
+        font-size: 2rem; /* icon chhota */
+        margin-bottom: 15px;
+    }
+
+    .services-container {
+        gap: 15px; /* gap reduce */
+        flex-direction: column;
+        align-items: center;
     }
 }
